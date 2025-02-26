@@ -13,16 +13,16 @@ xmlns="http://www.w3.org/TR/REC-html40">
  <o:DocumentProperties>
   <o:Author>Jennifer Alsobrook</o:Author>
   <o:LastAuthor>Jennifer Alsobrook</o:LastAuthor>
-  <o:Revision>2</o:Revision>
+  <o:Revision>3</o:Revision>
   <o:TotalTime>1</o:TotalTime>
   <o:Created>2025-02-26T03:48:00Z</o:Created>
-  <o:LastSaved>2025-02-26T03:48:00Z</o:LastSaved>
-  <o:Pages>2</o:Pages>
-  <o:Words>246</o:Words>
-  <o:Characters>1408</o:Characters>
-  <o:Lines>11</o:Lines>
-  <o:Paragraphs>3</o:Paragraphs>
-  <o:CharactersWithSpaces>1651</o:CharactersWithSpaces>
+  <o:LastSaved>2025-02-26T04:59:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>197</o:Words>
+  <o:Characters>1126</o:Characters>
+  <o:Lines>9</o:Lines>
+  <o:Paragraphs>2</o:Paragraphs>
+  <o:CharactersWithSpaces>1321</o:CharactersWithSpaces>
   <o:Version>16.00</o:Version>
  </o:DocumentProperties>
  <o:OfficeDocumentSettings>
@@ -35,7 +35,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
  <w:WordDocument>
   <w:SpellingState>Clean</w:SpellingState>
   <w:GrammarState>Clean</w:GrammarState>
-  <w:TrackMoves/>
+  <w:TrackMoves>false</w:TrackMoves>
   <w:TrackFormatting/>
   <w:PunctuationKerning/>
   <w:ValidateAgainstSchemas/>
@@ -677,14 +677,6 @@ xmlns="http://www.w3.org/TR/REC-html40">
 	mso-generic-font-family:swiss;
 	mso-font-pitch:variable;
 	mso-font-signature:536871559 3 0 0 415 0;}
-@font-face
-	{font-family:AppleSystemUIFont;
-	panose-1:2 11 6 4 2 2 2 2 2 4;
-	mso-font-alt:Calibri;
-	mso-font-charset:0;
-	mso-generic-font-family:auto;
-	mso-font-pitch:auto;
-	mso-font-signature:3 0 0 0 1 0;}
 @font-face
 	{font-family:"\@DengXian";
 	panose-1:2 1 6 0 3 1 1 1 1 1;
@@ -1578,58 +1570,35 @@ Code&lt;/title&gt;<o:p></o:p></p>
 
 <p class=MsoNormal><span style='mso-spacerun:yes'>    </span>&lt;script&gt;<o:p></o:p></p>
 
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span><span
-class=SpellE><span class=GramE>document.addEventListener</span></span>(&quot;<span
-class=SpellE>DOMContentLoaded</span>&quot;, async function () {<o:p></o:p></p>
+<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>async function
+<span class=SpellE><span class=GramE>fetchPromoCode</span></span><span
+class=GramE>(</span>) {<o:p></o:p></p>
 
 <p class=MsoNormal><span style='mso-spacerun:yes'>            </span>const <span
-class=SpellE>apiKey</span> = &quot;<span style='font-size:13.0pt;line-height:
-115%;font-family:AppleSystemUIFont;mso-bidi-font-family:AppleSystemUIFont;
-mso-font-kerning:0pt'>AIzaSyAAfhEsf_R90GWGVt3rdTP-SI4aS_QNhHo</span><span
-class=GramE>&quot;;<span style='mso-spacerun:yes'>  </span>/</span>/ Replace
-with your API Key<o:p></o:p></p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span>const <span
-class=SpellE>sheetId</span> = &quot;<span style='font-size:13.0pt;line-height:
-115%;font-family:AppleSystemUIFont;mso-bidi-font-family:AppleSystemUIFont;
-mso-font-kerning:0pt'>1o7grCwjB6RC022r9lk3C9IID0eQOplPvjixGZAqdonY</span><span
-class=GramE>&quot;;<span style='mso-spacerun:yes'>  </span>/</span>/ Replace
-with your Google Sheet ID<o:p></o:p></p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span>const
-range = &quot;<span class=GramE>A:B</span>&quot;; // Assuming Column A = Promo
-Codes, Column B = Status<o:p></o:p></p>
+class=SpellE>apiUrl</span> = &quot;https://docs.google.com/spreadsheets/d/1o7grCwjB6RC022r9lk3C9IID0eQOplPvjixGZAqdonY/edit?usp=sharing<span
+class=GramE>&quot;;</span><o:p></o:p></p>
 
 <p class=MsoNormal><o:p>&nbsp;</o:p></p>
 
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=SpellE><span lang=SV style='mso-ansi-language:SV'>const</span></span><span
-lang=SV style='mso-ansi-language:SV'> <span class=SpellE>url</span> =
-`https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;<o:p></o:p></span></p>
-
-<p class=MsoNormal><span lang=SV style='mso-ansi-language:SV'><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal><span lang=SV style='mso-ansi-language:SV'><span
-style='mso-spacerun:yes'>            </span></span>try {<o:p></o:p></p>
+<p class=MsoNormal><span style='mso-spacerun:yes'>            </span>try {<o:p></o:p></p>
 
 <p class=MsoNormal><span style='mso-spacerun:yes'>                </span>const
-response = await fetch(<span class=SpellE>url</span><span class=GramE>);</span><o:p></o:p></p>
+response = await fetch(<span class=SpellE>apiUrl</span><span class=GramE>);</span><o:p></o:p></p>
 
 <p class=MsoNormal><span style='mso-spacerun:yes'>                </span>const
 data = await <span class=SpellE><span class=GramE>response.json</span></span>();<o:p></o:p></p>
 
-<p class=MsoNormal><span style='mso-spacerun:yes'>                </span>const
-rows = <span class=SpellE><span class=GramE>data.values</span></span>;<o:p></o:p></p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>                </span>//
-Find an unused promo code<o:p></o:p></p>
-
 <p class=MsoNormal><span style='mso-spacerun:yes'>                </span><span
-class=GramE><span lang=FR style='mso-ansi-language:FR'>let</span></span><span
-lang=FR style='mso-ansi-language:FR'> <span class=SpellE>promoCode</span> =
-&quot;No <span class=SpellE>available</span> codes&quot;;<o:p></o:p></span></p>
+class=SpellE><span class=GramE><span lang=FR style='mso-ansi-language:FR'>const</span></span></span><span
+lang=FR style='mso-ansi-language:FR'> <span class=SpellE>rows</span> = <span
+class=SpellE>data.values</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=FR style='mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=FR style='mso-ansi-language:FR'><span
+style='mso-spacerun:yes'>                </span><span class=GramE>let</span> <span
+class=SpellE>promoCode</span> = &quot;No <span class=SpellE>available</span>
+codes&quot;;<o:p></o:p></span></p>
 
 <p class=MsoNormal><span lang=FR style='mso-ansi-language:FR'><span
 style='mso-spacerun:yes'>                </span></span>for (let <span
@@ -1652,29 +1621,38 @@ class=GramE>rows.length</span></span>; <span class=SpellE>i</span>++) {<o:p></o:
 
 <p class=MsoNormal><o:p>&nbsp;</o:p></p>
 
-<p class=MsoNormal><span style='mso-spacerun:yes'>                </span>//
-Display the promo code<o:p></o:p></p>
-
 <p class=MsoNormal><span style='mso-spacerun:yes'>                </span><span
 class=SpellE><span class=GramE>document.getElementById</span></span>(&quot;promo-code&quot;).<span
 class=SpellE>textContent</span> = <span class=SpellE>promoCode</span>;<o:p></o:p></p>
 
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span>} catch
-(error) {<o:p></o:p></p>
+<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
+lang=ES style='mso-ansi-language:ES'>} catch (error) {<o:p></o:p></span></p>
 
-<p class=MsoNormal><span style='mso-spacerun:yes'>                </span><span
-class=SpellE><span class=GramE>console.error</span></span>(&quot;Error fetching
-promo code:&quot;, error);<o:p></o:p></p>
+<p class=MsoNormal><span lang=ES style='mso-ansi-language:ES'><span
+style='mso-spacerun:yes'>                </span><span class=SpellE><span
+class=GramE>console.error</span></span>(&quot;Error <span class=SpellE>fetching</span>
+<span class=SpellE>promo</span> <span class=SpellE>code</span>:&quot;, error);<o:p></o:p></span></p>
 
-<p class=MsoNormal><span style='mso-spacerun:yes'>                </span><span
-class=SpellE><span class=GramE>document.getElementById</span></span>(&quot;promo-code&quot;).<span
-class=SpellE>textContent</span> = &quot;Error retrieving code&quot;;<o:p></o:p></p>
+<p class=MsoNormal><span lang=ES style='mso-ansi-language:ES'><span
+style='mso-spacerun:yes'>                </span><span class=SpellE><span
+class=GramE>document.getElementById</span></span>(&quot;<span class=SpellE>promo-code</span>&quot;).<span
+class=SpellE>textContent</span> = &quot;Error <span class=SpellE>retrieving</span>
+<span class=SpellE>code</span>&quot;;<o:p></o:p></span></p>
 
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span>}<o:p></o:p></p>
+<p class=MsoNormal><span lang=ES style='mso-ansi-language:ES'><span
+style='mso-spacerun:yes'>            </span>}<o:p></o:p></span></p>
 
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>});<o:p></o:p></p>
+<p class=MsoNormal><span lang=ES style='mso-ansi-language:ES'><span
+style='mso-spacerun:yes'>        </span>}<o:p></o:p></span></p>
 
-<p class=MsoNormal><span style='mso-spacerun:yes'>    </span>&lt;/script&gt;<o:p></o:p></p>
+<p class=MsoNormal><span lang=ES style='mso-ansi-language:ES'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=ES style='mso-ansi-language:ES'><span
+style='mso-spacerun:yes'>        </span><span class=SpellE><span class=GramE>document.addEventListener</span></span>(&quot;<span
+class=SpellE>DOMContentLoaded</span>&quot;, <span class=SpellE>fetchPromoCode</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=ES style='mso-ansi-language:ES'><span
+style='mso-spacerun:yes'>    </span>&lt;/script&gt;<o:p></o:p></span></p>
 
 <p class=MsoNormal>&lt;/head&gt;<o:p></o:p></p>
 
