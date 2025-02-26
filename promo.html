@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promo Code Display</title>
+    <script>
+        async function fetchPromoCode() {
+            const apiUrl = "https://sheets.googleapis.com/v4/spreadsheets/1o7grCwjB6RC022r9lk3C9IID0eQOplPvjixGZAqdonY/values/A:B?key=AIzaSyCrswHBMiXmBxHg_1RHel3EevUruHkjUJQ";
+
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+                const rows = data.values;
+
+                let promoCode = "No available codes";
+                for (let i = 1; i < rows.length; i++) {
+                    if (rows[i][1] === "Unused") {
+                        promoCode = rows[i][0]; // First available promo code
+                        break;
+                    }
+                }
+
+                document.getElementById("promo-code").textContent = promoCode;
+            } catch (error) {
+                console.error("Error fetching promo code:", error);
+                document.getElementById("promo-code").textContent = "Error retrieving code";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", fetchPromoCode);
+    </script>
+</head>
+<body>
+    <h2>Your Unique Promo Code:</h2>
+    <p id="promo-code" style="font-size: 24px; font-weight: bold; color: red;">Loading...</p>
+</body>
+</html>
